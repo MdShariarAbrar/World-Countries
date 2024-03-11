@@ -4,3 +4,6 @@
     padding: 15px;
     border-radius: 16px;
 }
+.visited {
+    background-color: tomato;
+}
