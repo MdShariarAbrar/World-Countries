@@ -9,7 +9,7 @@ const Countries = () => {
   const [mark, setMark] = useState([]);
 
   const handleMark = (country) => {
-    console.log(country);
+    setMark([...mark, country]);
   };
 
   useEffect(() => {
@@ -21,15 +21,19 @@ const Countries = () => {
   return (
     <>
       <div>
-        <ul></ul>
+        <ul>
+          {mark.map((country) => (
+            <li key={country.cca3}>{country.name.common}</li>
+          ))}
+        </ul>
       </div>
 
       <div className="countries">
         {countries.map((country) => (
           <Country
+            handleMark={handleMark}
             country={country}
             key={country.cca3}
-            handleMark={handleMark}
           ></Country>
         ))}
       </div>
